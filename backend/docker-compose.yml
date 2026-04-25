@@ -31,7 +31,8 @@ services:
     depends_on:
       - mongo
     environment:
-      ME_CONFIG_MONGODB_URL: ${MONGO_URI}
+      # ME_CONFIG_MONGODB_URL: ${MONGO_URI}
+      ME_CONFIG_MONGODB_URL: mongodb://root:admin@mongo:27017/stores?authSource=admin
       ME_CONFIG_BASICAUTH_ENABLED: true
       ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
       ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
