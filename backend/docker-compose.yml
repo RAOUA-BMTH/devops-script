@@ -3,7 +3,7 @@ services:
   backend-api:
     image: raouamth/backend-session16
     container_name: backend-api
-    depends on:
+    depends_on:
       - mongo
     ports:
       - "3001:3001"
@@ -24,7 +24,7 @@ services:
     restart: always
     ports:
       - 8081:8081
-    depends on:
+    depends_on:
       - mongo
     environment:
       ME_CONFIG_MONGODB_URL: ${MONGO_URI}
