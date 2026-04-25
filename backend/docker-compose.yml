@@ -5,12 +5,16 @@ services:
     container_name: backend-api
     depends_on:
       - mongo
+    build:  
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
-    env_file:
-      - .env
-      
-
+    # env_file:
+    #   - .env
+    environment:
+      - MONGO_URI= mongodb://root:admin@mongo:27017/stores?authSource=admin
+      - PORT= 3001
 
   mongo:
     image: mongo
