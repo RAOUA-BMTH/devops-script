@@ -1,9 +1,4 @@
 services:
-  frontend-app:
-    image: raouamth/frontend-session16
-    ports:
-      - 3007:80
-    container_name: frontend-app
 
   # Backend API
   backend-api:
