@@ -1,6 +1,6 @@
 services:
   frontend-app:
-    image: raouamth/frontend-session16
+    image: raouamth/frontend-session16:${IMAGE_TAG}
     ports:
       - 3007:80
     container_name: frontend-app
