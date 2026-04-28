@@ -7,8 +7,8 @@ services:
     # depends_on:
     #   - mongo
     environment:
-    # - MONGO_URI=mongodb://root:admin@mongo:27017/stores?authSource=admin
-      - MONGO_URI=mongodb+srv://raoua_mth:06909964@cluster0.bm6ftu1.mongodb.net/stores
+      - MONGO_URI=mongodb://root:admin@mongo:27017/stores?authSource=admin
+      # - MONGO_URI=mongodb+srv://raoua_mth:06909964@cluster0.bm6ftu1.mongodb.net/stores
       - PORT=3001   
     # build:  
     #   context: .
