@@ -4,3 +4,6 @@ services:
     ports:
       - 3007:80
     container_name: frontend-app
+    
+
+    # here just comment

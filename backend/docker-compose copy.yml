@@ -1,0 +1,73 @@
+version: "1.1"
+
+services:
+
+  # Backend API
+  backend-api:
+    image: raouamth/backend-session16
+    container_name: backend-api
+    # depends_on:
+    #   - mongo
+    environment:
+      # - MONGO_URI=mongodb://root:admin@mongo:27017/stores?authSource=admin
+      - DATABASE_URL=mysql://app_user:app_pass@mysql:3306/stores
+      # - MONGO_URI=mongodb+srv://raoua_mth:06909964@cluster0.bm6ftu1.mongodb.net/stores
+      - PORT=3001   
+    # build:  
+    #   context: .
+    #   dockerfile: Dockerfile
+    ports:
+      - "3000:3001"
+    # env_file:
+    #   - .env
+      
+
+
+
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:
+
+
+
+
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: admin
+
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   depends_on:
+  #     - mongo
+  #   environment:
+  #     ME_CONFIG_MONGODB_URL: mongodb://root:admin@mongo:27017/stores?authSource=admin
+  #     ME_CONFIG_BASICAUTH_ENABLED: true
+  #     ME_CONFIG_BASICAUTH_USERNAME: mongoexpressuser
+  #     ME_CONFIG_BASICAUTH_PASSWORD: mongoexpresspass
